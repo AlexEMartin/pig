@@ -7,6 +7,12 @@ def catalogo(request):
     return render(request, 'paginas/catalogo.html')
 
 def contacto(request):
-    return render(request, 'paginas/contacto.html')        
+    return render(request, 'paginas/contacto.html')  
+
+def productos(request):
+    return render(request, 'productos/index.html')   
+
+def crear(request):
+    return render(request, 'productos/crear.html')       
 
 # Create your views here.
