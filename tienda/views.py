@@ -15,4 +15,7 @@ def productos(request):
 def crear(request):
     return render(request, 'productos/crear.html')       
 
+def editar(request):
+    return render(request, 'productos/editar.html')         
+
 # Create your views here.
