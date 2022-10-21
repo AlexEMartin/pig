@@ -23,16 +23,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for producto in productos %}
                     <tr class="">
-                        <td>1</td>
-                        <td>Almohadon infantil</td>
-                        <td>Imagen.jpeg</td>
-                        <td>Almohadón con funda de Frozen</td>
+                        <td>{{ producto.id }}</td>
+                        <td>{{ producto.titulo }}</td>
+                        <td>
+                            <img src={{ producto.imagen.url }} height='100' alt="">
+                        </td>
+                        <td>{{ producto.descripcion }}</td>
                         <td>
                              <a name="" id="" class="btn btn-info" href="{% url 'editar' %}" role="button">Editar</a> 
                              <a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a> 
                         </td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

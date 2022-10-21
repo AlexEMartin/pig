@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Almohadon
+from .forms import AlmohadonForm 
 
 def home(request):
     return render(request, 'paginas/home.html')
@@ -10,10 +12,12 @@ def contacto(request):
     return render(request, 'paginas/contacto.html')  
 
 def productos(request):
-    return render(request, 'productos/index.html')   
+    almohadones = Almohadon.objects.all()
+    return render(request, 'productos/index.html', {'productos': almohadones})   
 
 def crear(request):
-    return render(request, 'productos/crear.html')       
+    formulario = AlmohadonForm(request.POST or None)
+    return render(request, 'productos/crear.html', {'formulario': formulario})       
 
 def editar(request):
     return render(request, 'productos/editar.html')         
