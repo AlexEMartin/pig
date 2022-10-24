@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Almohadon
 from .forms import AlmohadonForm 
 
@@ -16,10 +16,19 @@ def productos(request):
     return render(request, 'productos/index.html', {'productos': almohadones})   
 
 def crear(request):
-    formulario = AlmohadonForm(request.POST or None)
+    formulario = AlmohadonForm(request.POST or None, request.FILES or None)
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('productos')
     return render(request, 'productos/crear.html', {'formulario': formulario})       
 
-def editar(request):
-    return render(request, 'productos/editar.html')         
+def editar(request, id):
+    almohadon = Almohadon.objects.get(id=id)
+    formulario = AlmohadonForm(request.POST or None, request.FILES or None, instance=almohadon)
+    return render(request, 'productos/editar.html', {'formulario': formulario})  
+def eliminar(request, id):
+    almohadon = Almohadon.objects.get(id=id)
+    almohadon.delete()
+    return redirect('productos')           
 
 # Create your views here.
