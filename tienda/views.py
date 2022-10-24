@@ -25,6 +25,9 @@ def crear(request):
 def editar(request, id):
     almohadon = Almohadon.objects.get(id=id)
     formulario = AlmohadonForm(request.POST or None, request.FILES or None, instance=almohadon)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('productos')
     return render(request, 'productos/editar.html', {'formulario': formulario})  
 def eliminar(request, id):
     almohadon = Almohadon.objects.get(id=id)
