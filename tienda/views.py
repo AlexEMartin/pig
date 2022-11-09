@@ -29,6 +29,7 @@ def editar(request, id):
         formulario.save()
         return redirect('productos')
     return render(request, 'productos/editar.html', {'formulario': formulario})  
+
 def eliminar(request, id):
     almohadon = Almohadon.objects.get(id=id)
     almohadon.delete()
