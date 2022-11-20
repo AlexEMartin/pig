@@ -8,6 +8,11 @@
     <div class="card-header">
         <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar almohadon</a>
     </div>
+
+    <!-- <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crear_funda' %}" role="button">Agregar funda</a>
+    </div> -->
+
     <div class="card-body">
         <h4 class="card-title">Almohadones</h4>
 
@@ -42,6 +47,41 @@
             </table>
         </div>
         
+        <h4 class="card-title">Fundas</h4>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Colección</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Tamaño</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for producto in productos %}
+                    <tr class="col-12">
+                        <td class="col-1">{{ producto.id }}</td>
+                        <td class="col-2">{{ producto.titulo }}</td>
+                        <td class="col-2">
+                            <img src={{ producto.imagen.url }} height='100' alt="">
+                        </td>
+                        <td class="col-4">{{ producto.descripcion }}</td>
+                        <td class="col-3">
+                             <a name="" id="" class="btn btn-dark" href="{% url 'editar' producto.id %}" role="button">Editar</a> 
+                             |
+                             <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' producto.id %}" role="button">Borrar</a> 
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
     </div>
     <div class="card-footer text-muted">
         

@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'pig.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES={
-   'default':{
-      'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'postgres',
-      'USER':'postgres',
-      'PASSWORD': config('PASSWORD'),
-      'HOST':'localhost',
-      'PORT':'5432',
-   }
+    'default':{
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'NAME':'postgres',
+        'USER':'postgres',
+        'PASSWORD': 'Ree3ZSZva',
+        'HOST':'localhost',
+        'PORT':'5432',
+    }
 }
 
 

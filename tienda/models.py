@@ -15,3 +15,16 @@ class Almohadon(models.Model):
         self.imagen.storage.delete(self.imagen.name)
         super().delete()
     
+
+class Funda(models.Model):
+    id=models.AutoField(primary_key=True)
+    coleccion=models.CharField(max_length=100, verbose_name='Colección')
+    modelo=models.CharField(max_length=100, verbose_name='Modelo')
+    tamano=models.CharField(max_length=8, verbose_name='Tamaño')
+    imagen_funda = models.ImageField(upload_to='imagenes/', verbose_name='Imagen', null=True)
+    
+    def __str__(self):
+        fila = 'Colección: ' + self.coleccion + ' - ' + 'Modelo: ' + self.modelo
+        return fila
+    
+    
