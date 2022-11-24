@@ -1,0 +1,30 @@
+{% extends "navbar.html" %} {% block title %} Home {% endblock %} 
+
+{% block contenido %}
+
+<title>Iniciar sesión</title>
+
+<div class="w-100 text-center mx-auto">
+    <h5 class="p-4 m-2">Inicio de sesión requerido</h5>
+</div>
+
+<div class="w-25 m-auto">
+    <form method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="usuario" class="form-label">Usuario</label>
+            <input type="text"
+              class="form-control" name="username" aria-describedby="helpId">
+          </div>
+          <div class="mb-3">
+            <label for="pass" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="password">
+          </div>
+          <div class="text-center mt-4">
+            <button type="submit" class="w-100 btn btn-primary">Iniciar sesión</button>
+          </div>
+    </form>
+</div>
+
+
+{% endblock %}

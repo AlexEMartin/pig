@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Almohadon
 from .forms import AlmohadonForm 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 def home(request):
     return render(request, 'paginas/home.html')
@@ -11,6 +13,7 @@ def catalogo(request):
 def contacto(request):
     return render(request, 'paginas/contacto.html')  
 
+@login_required
 def productos(request):
     almohadones = Almohadon.objects.all()
     return render(request, 'productos/index.html', {'productos': almohadones})   
@@ -33,6 +36,10 @@ def editar(request, id):
 def eliminar(request, id):
     almohadon = Almohadon.objects.get(id=id)
     almohadon.delete()
-    return redirect('productos')           
+    return redirect('productos')          
+
+def salir(request):
+    logout(request)
+    return redirect('/') 
 
 # Create your views here.
