@@ -7,6 +7,7 @@
 <div class="card">
     <div class="card-header">
         <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar almohadon</a>
+        <a name="" id="" class="position-absolute end-0 mt-0 btn btn-dark" href="{% url 'salir' %}" role="button">Salir</a>
     </div>
     <div class="card-body">
         <h4 class="card-title">Almohadones</h4>
@@ -32,7 +33,7 @@
                         </td>
                         <td class="col-4">{{ producto.descripcion }}</td>
                         <td class="col-3">
-                             <a name="" id="" class="btn btn-dark" href="{% url 'editar' producto.id %}" role="button">Editar</a> 
+                             <a name="" id="" class="btn btn-primary" href="{% url 'editar' producto.id %}" role="button">Editar</a> 
                              |
                              <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' producto.id %}" role="button">Borrar</a> 
                         </td>
