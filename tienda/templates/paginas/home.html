@@ -23,7 +23,20 @@
 <div>
   <img class="w-100" src={% static 'images/fondo.jpg' %} alt="fondo-modelo">
 </div>
-<div class="w-100 p-5 bg-dark text-white d-flex">
+<h1 class="p-5 text-secondary">Stock de entrega inmediata</h1>
+{% for almohadon in productos %}
+  <div class="card mt-4 mx-auto" style="width: 32rem;">
+    <img class="card-img-top" src='{{ almohadon.imagen.url }}' alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">{{ almohadon.titulo }}</p>
+    </div>
+  </div>
+{% endfor %}
+<h6 class='position-fixed fixed-bottom d-flex flex-row-reverse p-3 text-primary'>Haz tu pedido</h6>
+<a class='position-fixed fixed-bottom d-flex flex-row-reverse p-5' href="https://wa.me/5491123763974?text=Quiero%20encargar%20mi%20almohad%C3%B3n%20personalizado!" target="_blank">
+  <img src={% static 'images/wapp-logo.png' %} width="60" height="60">
+</a>
+<div class="w-100 p-5 bg-dark text-white d-flex mt-4">
   <div class="w-25">
     <img class="w-25 rounded-circle" src={% static 'images/cac.png' %} alt="logo-cac">
   </div>

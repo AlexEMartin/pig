@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 
 def home(request):
-    return render(request, 'paginas/home.html')
+    almohadones = Almohadon.objects.all()
+    return render(request, 'paginas/home.html', {'productos': almohadones})
 
 def catalogo(request):
     return render(request, 'paginas/catalogo.html')
