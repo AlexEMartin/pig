@@ -16,4 +16,10 @@ class Almohadon(models.Model):
         super().delete()
 
 
-# Crear una clase nueva y emparejarla con Almohadon
+class Customer(models.Model):
+    nombre = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    descripcion = models.TextField(max_length=500)
+
+    def __str__(self):
+        return self.nombre + ' - ' + self.email + ' - ' + self.descripcion
