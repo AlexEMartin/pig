@@ -29,7 +29,7 @@ def productos(request):
     almohadones = Almohadon.objects.all()
     return render(request, 'productos/index.html', {'productos': almohadones})
 
-
+@login_required
 def crear(request):
     formulario = AlmohadonForm(request.POST or None, request.FILES or None)
     if formulario.is_valid():
@@ -37,7 +37,7 @@ def crear(request):
         return redirect('productos')
     return render(request, 'productos/crear.html', {'formulario': formulario})
 
-
+@login_required
 def editar(request, id):
     almohadon = Almohadon.objects.get(id=id)
     formulario = AlmohadonForm(
@@ -47,13 +47,13 @@ def editar(request, id):
         return redirect('productos')
     return render(request, 'productos/editar.html', {'formulario': formulario})
 
-
+@login_required
 def eliminar(request, id):
     almohadon = Almohadon.objects.get(id=id)
     almohadon.delete()
     return redirect('productos')
 
-
+@login_required
 def salir(request):
     logout(request)
     return redirect('/')
