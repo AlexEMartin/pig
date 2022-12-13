@@ -6,6 +6,13 @@
 {% block contenido %}
 
 <div class="p-5 bg-light">
+  {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
   <div class="container">
     <h1>Bienvenides a nuestra Tienda de Almohadones</h1>
     <p>

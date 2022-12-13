@@ -5,6 +5,13 @@
 {% block contenido %}
 
 <div class="card">
+    {% if messages %}
+        <ul class="messages mt-4 w-50">
+            {% for message in messages %}
+            <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <div class="card-header">
         <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar almohadon</a>
         <a name="" id="" class="position-absolute end-0 mt-0 btn btn-dark" href="{% url 'salir' %}" role="button">Salir</a>
